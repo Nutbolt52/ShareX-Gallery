@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 Use Storage;
 Use Image;
-Use File;
 
 class Home extends Controller
 {
     public function HomePage()
     {
-        $destinationPath = public_path('\storage\thumbnails');
+        $destinationPath = public_path('/storage/thumbnails');
 
         $fullsizedfiles = array_filter(Storage::files('public/fullsized-images'), function($file) {
             return preg_match('/\.(jpg|jpeg|png|gif)(?:[\?\#].*)?$/i', $file);
